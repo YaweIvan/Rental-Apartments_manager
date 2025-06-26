@@ -1,16 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Home, Users, CreditCard, MessageSquare, Calendar, UserCog, LogOut } from "lucide-react";
 
 const menuItems = [
-  { icon: Home, label: "Dashboard", active: true },
-  { icon: Home, label: "Apartments" },
-  { icon: Users, label: "Tenants" },
-  { icon: CreditCard, label: "Rent Tracking" },
-  { icon: MessageSquare, label: "Complaints" },
-  { icon: Home, label: "Available Rooms" },
-  { icon: Calendar, label: "Appointments" },
-  { icon: UserCog, label: "Profile" },
-  { icon: LogOut, label: "Logout" },
+  { icon: Home, label: "Dashboard", to: "/dashboard" },
+  { icon: Home, label: "Apartments", to: "/apartments" },
+  { icon: Users, label: "Tenants", to: "/tenants" },
+  { icon: CreditCard, label: "Rent Tracking", to: "/rent" },
+  { icon: MessageSquare, label: "Complaints", to: "/complaints" },
+  { icon: Home, label: "Available Rooms", to: "/rooms-available" },
+  { icon: Calendar, label: "Appointments", to: "/appointments" },
+  { icon: UserCog, label: "Profile", to: "/profile" },
+  { icon: LogOut, label: "Logout", to: "/" },
 ];
 
 function Sidebar() {
@@ -30,10 +31,14 @@ function Sidebar() {
             const Icon = item.icon;
             return (
               <li key={index}>
-                <button className={`nav-item ${item.active ? 'active' : ''}`}>
+                <Link
+                  to={item.to}
+                  className="nav-item"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <Icon size={18} />
                   <span>{item.label}</span>
-                </button>
+                </Link>
               </li>
             );
           })}

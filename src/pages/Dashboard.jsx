@@ -4,7 +4,7 @@ import Topbar from "../components/Topbar";
 import {
   Building2, Home, Users, DollarSign, AlertTriangle, Calendar, UserCheck
 } from "lucide-react";
-import "./Dashboard.css";
+import "../styles/Dashboard.css";
 
 // Static example complaints
 const complaints = [
